@@ -55,78 +55,98 @@ const services = [
 export default function Home() {
   return (
     <main>
-      {/* INTRO CINEMATOGRÁFICA */}
-      <Intro />
+      {/* INTRO Y PORTADA CON SCROLL STICKY */}
+      <div
+        id="intro-section"
+        className="relative h-[220vh]"
+      >
+        <div className="sticky top-0 h-screen overflow-hidden bg-black">
+          {/* PORTADA PRINCIPAL */}
+          <section className="section-dark relative flex h-full flex-col justify-center overflow-hidden">
+            {/* NAVEGACIÓN */}
+            <header className="absolute left-0 top-0 z-20 w-full text-white">
+              <div className="container-rufino flex h-24 items-center justify-between">
+                <Link
+                  href="/"
+                  className="text-3xl font-black tracking-[-0.08em]"
+                >
+                  RUFINO.
+                </Link>
 
-      {/* NAVEGACIÓN */}
-      <header className="absolute left-0 top-0 z-20 w-full text-white">
-        <div className="container-rufino flex h-24 items-center justify-between">
-          <Link
-            href="/"
-            className="text-3xl font-black tracking-[-0.08em]"
-          >
-            RUFINO.
-          </Link>
+                <nav className="hidden items-center gap-10 text-sm font-medium md:flex">
+                  <a
+                    href="#proyectos"
+                    className="hover:opacity-60"
+                  >
+                    Proyectos
+                  </a>
+                  <a
+                    href="#servicios"
+                    className="hover:opacity-60"
+                  >
+                    Servicios
+                  </a>
+                  <a
+                    href="#sobre-mi"
+                    className="hover:opacity-60"
+                  >
+                    Sobre mí
+                  </a>
+                  <a
+                    href="#contacto"
+                    className="hover:opacity-60"
+                  >
+                    Contacto
+                  </a>
+                </nav>
 
-          <nav className="hidden items-center gap-10 text-sm font-medium md:flex">
-            <a href="#proyectos" className="hover:opacity-60">
-              Proyectos
-            </a>
-            <a href="#servicios" className="hover:opacity-60">
-              Servicios
-            </a>
-            <a href="#sobre-mi" className="hover:opacity-60">
-              Sobre mí
-            </a>
-            <a href="#contacto" className="hover:opacity-60">
-              Contacto
-            </a>
-          </nav>
+                <a
+                  href="#contacto"
+                  className="flex items-center gap-2 text-sm font-semibold"
+                >
+                  Hablemos
+                  <ArrowUpRight size={18} />
+                </a>
+              </div>
+            </header>
 
-          <a
-            href="#contacto"
-            className="flex items-center gap-2 text-sm font-semibold"
-          >
-            Hablemos
-            <ArrowUpRight size={18} />
-          </a>
+            <div className="container-rufino relative z-10 pt-28">
+              <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
+                Fotografía · Film · Comunicación visual
+              </p>
+
+              <h1 className="max-w-6xl text-[clamp(5rem,17vw,17rem)] font-black leading-[0.8] tracking-[-0.095em]">
+                RUFINO.
+              </h1>
+
+              <div className="mt-12 flex flex-col justify-between gap-10 md:flex-row md:items-end">
+                <p className="max-w-lg text-xl leading-relaxed text-neutral-300 md:text-2xl">
+                  Fotografía y vídeo para dar presencia
+                  a tu marca.
+                </p>
+
+                <a
+                  href="#proyectos"
+                  className="flex items-center gap-3 text-sm font-semibold uppercase tracking-widest"
+                >
+                  Explorar
+                  <ArrowDown size={20} />
+                </a>
+              </div>
+            </div>
+
+            <div className="absolute bottom-8 left-0 w-full">
+              <div className="container-rufino flex justify-between text-xs uppercase tracking-widest text-neutral-500">
+                <span>Gran Canaria · Canarias</span>
+                <span>Scroll to explore ↓</span>
+              </div>
+            </div>
+          </section>
+
+          {/* FOTO QUE SE ABRE CON EL SCROLL */}
+          <Intro />
         </div>
-      </header>
-
-      {/* PORTADA PRINCIPAL */}
-      <section className="section-dark relative flex min-h-screen flex-col justify-center overflow-hidden">
-        <div className="container-rufino relative z-10 pt-28">
-          <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
-            Fotografía · Film · Comunicación visual
-          </p>
-
-          <h1 className="max-w-6xl text-[clamp(5rem,17vw,17rem)] font-black leading-[0.8] tracking-[-0.095em]">
-            RUFINO.
-          </h1>
-
-          <div className="mt-12 flex flex-col justify-between gap-10 md:flex-row md:items-end">
-            <p className="max-w-lg text-xl leading-relaxed text-neutral-300 md:text-2xl">
-              Fotografía y vídeo para dar presencia
-              a tu marca.
-            </p>
-
-            <a
-              href="#proyectos"
-              className="flex items-center gap-3 text-sm font-semibold uppercase tracking-widest"
-            >
-              Explorar
-              <ArrowDown size={20} />
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-0 w-full">
-          <div className="container-rufino flex justify-between text-xs uppercase tracking-widest text-neutral-500">
-            <span>Gran Canaria · Canarias</span>
-            <span>Scroll to explore ↓</span>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* PROYECTOS */}
       <section
