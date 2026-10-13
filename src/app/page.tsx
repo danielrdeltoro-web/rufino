@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Image from "next/image";
 import Intro from "@/components/Intro";
@@ -36,7 +35,7 @@ export default function Home() {
       {/* NAVEGACIÓN GLOBAL */}
       <Navbar />
 
-      {/* INTRO Y PORTADA */}
+      {/* INTRO Y PORTADA - SIN CAMBIOS */}
       <div
         id="intro-section"
         className="relative h-[230vh]"
@@ -83,7 +82,7 @@ export default function Home() {
       {/* 01 / PORTFOLIO GASTRONÓMICO */}
       <section
         id="proyectos"
-        className="section-dark relative min-h-screen scroll-mt-20 overflow-hidden bg-black text-white"
+        className="section-dark relative min-h-[75vh] scroll-mt-20 overflow-hidden bg-black text-white md:min-h-[80vh]"
       >
         {/* FOTOGRAFÍA DE FONDO */}
         <Image
@@ -98,7 +97,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-black/10" />
 
         {/* CONTENIDO */}
-        <div className="container-rufino relative z-10 flex min-h-screen flex-col pt-32 pb-16 md:pt-40 md:pb-24">
+        <div className="container-rufino relative z-10 flex min-h-[75vh] flex-col pb-12 pt-28 md:min-h-[80vh] md:pb-16 md:pt-32">
           <div className="flex items-center gap-4">
             <span className="text-sm font-bold">
               01 /
@@ -108,8 +107,8 @@ export default function Home() {
             </span>
           </div>
 
-          {/* TÍTULO EN ZONA CENTRAL IZQUIERDA */}
-          <div className="flex flex-1 flex-col justify-center pb-16 md:pb-24">
+          {/* TÍTULO GASTRONOMÍA */}
+          <div className="flex flex-1 flex-col justify-center pb-8 md:pb-12">
             <Link
               href="/gastronomia"
               className="group inline-flex w-fit max-w-full flex-col items-start"
@@ -119,11 +118,11 @@ export default function Home() {
                 FOTOGRAFÍA Y VÍDEO
               </span>
 
-              <span className="mt-3 block text-[clamp(2.6875rem,calc(5vw-5px),5.1875rem)] font-black leading-[1.05] tracking-normal text-white transition-opacity duration-300 group-hover:opacity-75">
+              <span className="relative -left-[5px] mt-3 block text-[clamp(2.6875rem,calc(5vw-5px),5.1875rem)] font-black leading-[1.05] tracking-normal text-white transition-opacity duration-300 group-hover:opacity-75">
                 Gastronomía
               </span>
 
-              <span className="mt-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-white/90 transition-all duration-300 group-hover:gap-5">
+              <span className="mt-7 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-white/90 transition-all duration-300 group-hover:gap-5">
                 Explorar portfolio
                 <ArrowUpRight size={20} />
               </span>
@@ -132,13 +131,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 02 / SERVICIOS - FONDO BLANCO */}
+      {/* 02 / SERVICIOS - MÁS COMPACTO */}
       <section
         id="servicios"
-        className="section-light scroll-mt-20 py-28 md:py-40"
+        className="section-light scroll-mt-20 py-16 md:py-24"
       >
         <div className="container-rufino">
-          <div className="mb-16 flex items-center gap-4">
+          <div className="mb-10 flex items-center gap-4 md:mb-12">
             <span className="text-sm font-bold">
               02 /
             </span>
@@ -153,13 +152,13 @@ export default function Home() {
             CON INTENCIÓN.
           </h2>
 
-          <div className="mt-20 border-t border-neutral-300">
+          <div className="mt-12 border-t border-neutral-300 md:mt-14">
             {services.map((service) => (
               <div
                 key={service.number}
-                className="flex flex-col gap-5 border-b border-neutral-300 py-10 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-3 border-b border-neutral-300 py-6 md:flex-row md:items-center md:justify-between md:py-7"
               >
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-6">
                   <span className="text-sm text-neutral-500">
                     {service.number}
                   </span>
@@ -178,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 03 / SOBRE MÍ - FONDO NEGRO */}
+      {/* 03 / SOBRE MÍ - SIN CAMBIOS */}
       <section
         id="sobre-mi"
         className="section-dark scroll-mt-20 py-28 md:py-40"
@@ -220,13 +219,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 04 / CONTACTO - FONDO BLANCO */}
+      {/* 04 / CONTACTO - MÁS COMPACTO */}
       <section
         id="contacto"
-        className="section-light scroll-mt-20 py-28 md:py-40"
+        className="section-light scroll-mt-20 py-16 md:py-24"
       >
         <div className="container-rufino">
-          <div className="mb-16 flex items-center gap-4">
+          <div className="mb-10 flex items-center gap-4 md:mb-12">
             <span className="text-sm font-bold">
               04 /
             </span>
@@ -241,7 +240,7 @@ export default function Home() {
             ALGO GRANDE?
           </h2>
 
-          <p className="mt-10 max-w-xl text-neutral-600">
+          <p className="mt-7 max-w-xl text-neutral-600">
             Tu marca tiene algo que contar.
             Hablemos de cómo darle vida.
           </p>
@@ -250,7 +249,7 @@ export default function Home() {
             href="https://www.instagram.com/byrubencurbelo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-12 inline-flex items-center gap-3 border-b border-black pb-3 text-xl font-semibold transition-opacity hover:opacity-60"
+            className="mt-8 inline-flex items-center gap-3 border-b border-black pb-3 text-xl font-semibold transition-opacity hover:opacity-60"
           >
             Escríbeme por Instagram
             <ArrowUpRight size={24} />
@@ -258,7 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* FOOTER - SIN CAMBIOS */}
       <footer className="bg-black py-10 text-white">
         <div className="container-rufino flex flex-col justify-between gap-6 border-t border-neutral-800 pt-10 md:flex-row md:items-center">
           <span className="text-2xl font-black tracking-tight">
