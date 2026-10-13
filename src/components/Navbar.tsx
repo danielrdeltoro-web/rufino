@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -33,9 +34,10 @@ export default function Navbar() {
           "intro-section"
         );
 
-        // Calculamos cuándo termina la apertura.
+        // Sincronizamos la navbar con la apertura.
         if (intro) {
           const rect = intro.getBoundingClientRect();
+
           const distance = Math.max(
             intro.offsetHeight - window.innerHeight,
             1
@@ -46,12 +48,13 @@ export default function Navbar() {
             1
           );
 
-          setIntroVisible(progress < 0.95);
+          // La fotografía termina de abrirse al 75%.
+          setIntroVisible(progress < 0.75);
         } else {
           setIntroVisible(false);
         }
 
-        // Detectamos qué sección hay detrás del menú.
+        // Detectamos el fondo bajo la navegación.
         const sections = document.querySelectorAll(
           ".section-light, .section-dark"
         );
@@ -62,14 +65,14 @@ export default function Navbar() {
           const rect = section.getBoundingClientRect();
 
           if (rect.top <= 50 && rect.bottom > 50) {
-            isDark =
-              section.classList.contains(
-                "section-dark"
-              );
+            isDark = section.classList.contains(
+              "section-dark"
+            );
           }
         });
 
         setDarkBackground(isDark);
+
         frame = 0;
       });
     };
@@ -87,6 +90,7 @@ export default function Navbar() {
         "scroll",
         updateNavbar
       );
+
       window.removeEventListener(
         "resize",
         updateNavbar
@@ -143,9 +147,7 @@ export default function Navbar() {
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
         } ${
-          menuOpen
-            ? "text-white"
-            : textColor
+          menuOpen ? "text-white" : textColor
         }`}
       >
         <div className="container-rufino flex h-20 items-center justify-between md:h-24">
@@ -184,9 +186,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={
-              menuOpen
-                ? "Cerrar menú"
-                : "Abrir menú"
+              menuOpen ? "Cerrar menú" : "Abrir menú"
             }
             aria-expanded={menuOpen}
             aria-controls="rufino-mobile-menu"
