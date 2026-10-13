@@ -1,10 +1,12 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 
 export default function Intro() {
   const [progress, setProgress] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] =
+    useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(
@@ -37,27 +39,35 @@ export default function Intro() {
       if (frame) return;
 
       frame = window.requestAnimationFrame(() => {
-        const introSection = document.getElementById(
-          "intro-section"
-        );
+        const introSection =
+          document.getElementById(
+            "intro-section"
+          );
 
         if (!introSection) {
           frame = 0;
           return;
         }
 
-        const rect = introSection.getBoundingClientRect();
+        const rect =
+          introSection.getBoundingClientRect();
 
-        // Distancia reservada para abrir la imagen.
-        const openingDistance = Math.max(
-          introSection.offsetHeight - window.innerHeight,
+        const totalDistance = Math.max(
+          introSection.offsetHeight -
+            window.innerHeight,
           1
         );
 
-        const scrolled = Math.max(-rect.top, 0);
+        const scrolled = Math.max(
+          -rect.top,
+          0
+        );
 
         const nextProgress = Math.min(
-          Math.max(scrolled / openingDistance, 0),
+          Math.max(
+            scrolled / totalDistance,
+            0
+          ),
           1
         );
 
@@ -69,11 +79,16 @@ export default function Intro() {
 
     updateScroll();
 
-    window.addEventListener("scroll", updateScroll, {
-      passive: true,
-    });
+    window.addEventListener(
+      "scroll",
+      updateScroll,
+      { passive: true }
+    );
 
-    window.addEventListener("resize", updateScroll);
+    window.addEventListener(
+      "resize",
+      updateScroll
+    );
 
     return () => {
       window.removeEventListener(
@@ -96,17 +111,34 @@ export default function Intro() {
     return null;
   }
 
-  const displacement = progress * 100;
+  /*
+   * La fotografía termina de abrirse
+   * al 75% del recorrido.
+   *
+   * El 25% restante mantiene
+   * la portada completamente visible.
+   */
+
+  const openingProgress = Math.min(
+    progress / 0.75,
+    1
+  );
+
+  const displacement =
+    openingProgress * 100;
 
   const titleOpacity = Math.max(
     0,
-    1 - progress * 3
+    1 - openingProgress * 3
   );
 
   const lineOpacity = Math.max(
     0,
-    0.5 - progress * 2
+    0.5 - openingProgress * 2
   );
+
+  const imageOpacity =
+    openingProgress >= 1 ? 0 : 1;
 
   return (
     <div
@@ -114,7 +146,9 @@ export default function Intro() {
       aria-hidden="true"
       style={{
         visibility:
-          progress >= 1 ? "hidden" : "visible",
+          openingProgress >= 1
+            ? "hidden"
+            : "visible",
       }}
     >
       {/* MITAD IZQUIERDA */}
@@ -122,6 +156,7 @@ export default function Intro() {
         className="absolute inset-y-0 left-0 w-1/2 overflow-hidden will-change-transform"
         style={{
           transform: `translate3d(-${displacement}%, 0, 0)`,
+          opacity: imageOpacity,
         }}
       >
         <div
@@ -141,6 +176,7 @@ export default function Intro() {
         className="absolute inset-y-0 right-0 w-1/2 overflow-hidden will-change-transform"
         style={{
           transform: `translate3d(${displacement}%, 0, 0)`,
+          opacity: imageOpacity,
         }}
       >
         <div
