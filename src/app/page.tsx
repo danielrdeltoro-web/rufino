@@ -82,7 +82,7 @@ export default function Home() {
       {/* 01 / PORTFOLIO GASTRONÓMICO */}
       <section
         id="proyectos"
-        className="section-dark relative min-h-[75vh] scroll-mt-20 overflow-hidden bg-black text-white md:min-h-[80vh]"
+        className="section-dark relative min-h-[85vh] scroll-mt-20 overflow-hidden bg-black text-white md:min-h-[90vh]"
       >
         {/* FOTOGRAFÍA DE FONDO */}
         <Image
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-black/10" />
 
         {/* CONTENIDO */}
-        <div className="container-rufino relative z-10 flex min-h-[75vh] flex-col pb-12 pt-28 md:min-h-[80vh] md:pb-16 md:pt-32">
+        <div className="container-rufino relative z-10 flex min-h-[85vh] flex-col pb-12 pt-28 md:min-h-[90vh] md:pb-16 md:pt-32">
           <div className="flex items-center gap-4">
             <span className="text-sm font-bold">
               01 /
@@ -177,10 +177,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 03 / SOBRE MÍ - SIN CAMBIOS */}
+      {/* 03 / SOBRE MÍ - MENOS ESPACIO SUPERIOR */}
       <section
         id="sobre-mi"
-        className="section-dark scroll-mt-20 py-28 md:py-40"
+        className="section-dark scroll-mt-20 pt-[72px] pb-28 md:pt-[120px] md:pb-40"
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
