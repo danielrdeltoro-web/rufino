@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import Image from "next/image";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
@@ -7,30 +7,6 @@ import {
   ArrowUpRight,
   Instagram,
 } from "lucide-react";
-
-const projects = [
-  {
-    number: "01",
-    title: "Gastronomía",
-    category: "Fotografía comercial",
-    image: "/images/gastronomia.png",
-    alt: "Fotografía gastronómica de Rufino",
-  },
-  {
-    number: "02",
-    title: "Retratos",
-    category: "Fotografía editorial",
-    image: "/images/retrato.png",
-    alt: "Retrato fotográfico de Rufino",
-  },
-  {
-    number: "03",
-    title: "Producto",
-    category: "Fotografía publicitaria",
-    image: "/images/producto.png",
-    alt: "Fotografía comercial de producto",
-  },
-];
 
 const services = [
   {
@@ -103,27 +79,27 @@ export default function Home() {
         </div>
       </div>
 
-      {/* PROYECTOS */}
+      {/* PORTFOLIO GASTRONÓMICO */}
       <section
         id="proyectos"
         className="section-light scroll-mt-20"
       >
-        {/* PORTADA FOTOGRÁFICA DEL PORTFOLIO */}
-        <div className="relative flex min-h-[85vh] items-end overflow-hidden bg-black text-white md:min-h-screen">
+        <div className="relative min-h-screen overflow-hidden bg-black text-white">
+          {/* FOTOGRAFÍA DE FONDO */}
           <Image
             src="/images/portfolio-background.png"
             alt="Fotografía gastronómica de carne a la parrilla con salsa"
             fill
-            priority={false}
             sizes="100vw"
             className="object-cover object-center"
           />
 
-          {/* CAPA PARA LEGIBILIDAD */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/20" />
+          {/* DEGRADADO SUAVE PARA LEGIBILIDAD */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
 
-          <div className="container-rufino relative z-10 pb-20 pt-36 md:pb-28">
-            <div className="mb-12 flex items-center gap-4">
+          {/* CONTENIDO SOBRE LA FOTOGRAFÍA */}
+          <div className="container-rufino relative z-10 flex min-h-screen flex-col justify-between pb-16 pt-32 md:pb-24">
+            <div className="flex items-center gap-4">
               <span className="text-sm font-bold">
                 01 /
               </span>
@@ -132,81 +108,24 @@ export default function Home() {
               </span>
             </div>
 
-            <h2 className="max-w-5xl text-5xl font-black leading-[1.05] tracking-tight md:text-8xl">
-              UNA SELECCIÓN
-              <br />
-              DE MI TRABAJO.
-            </h2>
+            <Link
+              href="/gastronomia"
+              className="group inline-flex w-fit max-w-full flex-col items-start gap-1"
+              aria-label="Explorar fotografía y vídeo gastronómico"
+            >
+              <span className="text-xs font-medium uppercase tracking-[0.15em] text-white/85">
+                FOTOGRAFÍA Y VÍDEO
+              </span>
 
-            <p className="mt-10 max-w-xl text-lg text-white/85">
-              Fotografía, vídeo y piezas de comunicación
-              creadas para mostrar la personalidad
-              de cada proyecto.
-            </p>
+              <span className="text-3xl font-bold leading-tight tracking-tight text-white transition-opacity duration-300 group-hover:opacity-70 md:text-4xl">
+                Gastronomía
+              </span>
 
-            <div className="mt-12 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-              Descubre los proyectos
-              <ArrowDown size={18} />
-            </div>
-          </div>
-        </div>
-
-        {/* GALERÍA DE PROYECTOS */}
-        <div className="container-rufino py-24 md:py-32">
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-                Trabajo seleccionado
-              </p>
-              <h3 className="text-4xl font-black tracking-tight md:text-6xl">
-                PROYECTOS.
-              </h3>
-            </div>
-
-            <p className="max-w-sm text-neutral-600">
-              Una mirada a diferentes disciplinas,
-              estilos y formas de contar historias.
-            </p>
-          </div>
-
-          <div className="grid gap-10 md:grid-cols-3">
-            {projects.map((project) => (
-              <article
-                key={project.number}
-                className="group"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden bg-neutral-200">
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
-
-                  <div className="absolute bottom-6 right-6 flex h-12 w-12 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <ArrowUpRight size={22} />
-                  </div>
-                </div>
-
-                <div className="mt-6 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="mb-2 text-xs uppercase tracking-widest text-neutral-500">
-                      {project.category}
-                    </p>
-                    <h3 className="text-2xl font-bold">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  <span className="text-sm text-neutral-500">
-                    {project.number}
-                  </span>
-                </div>
-              </article>
-            ))}
+              <span className="mt-4 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-white/80 opacity-100 transition-all duration-300 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                Explorar
+                <ArrowUpRight size={17} />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
