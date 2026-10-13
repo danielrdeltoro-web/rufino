@@ -107,18 +107,18 @@ export default function Home() {
             </span>
           </div>
 
-          {/* TÍTULO EN ZONA CENTRAL */}
-          <div className="flex flex-1 flex-col justify-center pt-10 md:pt-16">
+          {/* TÍTULO EN ZONA CENTRAL IZQUIERDA */}
+          <div className="flex flex-1 flex-col justify-center pb-16 md:pb-24">
             <Link
               href="/gastronomia"
               className="group inline-flex w-fit max-w-full flex-col items-start"
               aria-label="Explorar fotografía y vídeo gastronómico"
             >
-              <span className="block text-[clamp(2.2rem,5.2vw,5.5rem)] font-black uppercase leading-[1.05] tracking-[-0.04em] text-white">
+              <span className="block text-sm font-semibold uppercase tracking-widest text-white/90 md:text-base">
                 FOTOGRAFÍA Y VÍDEO
               </span>
 
-              <span className="mt-3 block text-[clamp(1.8rem,3.5vw,3.8rem)] font-bold leading-[1.1] tracking-[-0.04em] text-white transition-opacity duration-300 group-hover:opacity-75">
+              <span className="mt-3 block text-[clamp(3rem,5vw,5.5rem)] font-black leading-[1.05] tracking-[-0.04em] text-white transition-opacity duration-300 group-hover:opacity-75">
                 Gastronomía
               </span>
 
