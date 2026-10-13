@@ -98,7 +98,7 @@ export default function Home() {
 
         {/* CONTENIDO */}
         <div className="container-rufino relative z-10 flex min-h-screen flex-col pt-32 pb-16 md:pt-40 md:pb-24">
-          <div className="mb-12 flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <span className="text-sm font-bold">
               01 /
             </span>
@@ -107,24 +107,27 @@ export default function Home() {
             </span>
           </div>
 
-          <Link
-            href="/gastronomia"
-            className="group inline-flex w-fit max-w-full flex-col items-start"
-            aria-label="Explorar fotografía y vídeo gastronómico"
-          >
-            <span className="block text-3xl font-black uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
-              FOTOGRAFÍA Y VÍDEO
-            </span>
+          {/* TÍTULO EN ZONA CENTRAL */}
+          <div className="flex flex-1 flex-col justify-center pt-10 md:pt-16">
+            <Link
+              href="/gastronomia"
+              className="group inline-flex w-fit max-w-full flex-col items-start"
+              aria-label="Explorar fotografía y vídeo gastronómico"
+            >
+              <span className="block text-[clamp(2.2rem,5.2vw,5.5rem)] font-black uppercase leading-[1.05] tracking-[-0.04em] text-white">
+                FOTOGRAFÍA Y VÍDEO
+              </span>
 
-            <span className="mt-2 block text-5xl font-black leading-[1.05] tracking-tight text-white transition-opacity duration-300 group-hover:opacity-75 md:mt-4 md:text-8xl">
-              Gastronomía
-            </span>
+              <span className="mt-3 block text-[clamp(1.8rem,3.5vw,3.8rem)] font-bold leading-[1.1] tracking-[-0.04em] text-white transition-opacity duration-300 group-hover:opacity-75">
+                Gastronomía
+              </span>
 
-            <span className="mt-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-white/90 transition-all duration-300 group-hover:gap-5">
-              Explorar portfolio
-              <ArrowUpRight size={20} />
-            </span>
-          </Link>
+              <span className="mt-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-white/90 transition-all duration-300 group-hover:gap-5">
+                Explorar portfolio
+                <ArrowUpRight size={20} />
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
