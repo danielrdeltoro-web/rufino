@@ -59,13 +59,12 @@ export default function Home() {
       {/* NAVEGACIÓN GLOBAL */}
       <Navbar />
 
-      {/* INTRO Y PORTADA CON SCROLL STICKY */}
+      {/* INTRO Y PORTADA */}
       <div
         id="intro-section"
         className="relative h-[230vh]"
       >
         <div className="sticky top-0 h-screen overflow-hidden bg-black">
-          {/* PORTADA PRINCIPAL */}
           <section className="section-dark relative flex h-full flex-col justify-center overflow-hidden">
             <div className="container-rufino relative z-10 pt-28">
               <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
@@ -100,7 +99,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* FOTO QUE SE ABRE CON EL SCROLL */}
           <Intro />
         </div>
       </div>
@@ -108,29 +106,70 @@ export default function Home() {
       {/* PROYECTOS */}
       <section
         id="proyectos"
-        className="section-light scroll-mt-20 py-28 md:py-40"
+        className="section-light scroll-mt-20"
       >
-        <div className="container-rufino">
-          <div className="mb-16 flex items-center gap-4">
-            <span className="text-sm font-bold">01 /</span>
-            <span className="text-sm uppercase tracking-widest">
-              Portfolio
-            </span>
+        {/* PORTADA FOTOGRÁFICA DEL PORTFOLIO */}
+        <div className="relative flex min-h-[85vh] items-end overflow-hidden bg-black text-white md:min-h-screen">
+          <Image
+            src="/images/portfolio-background.png"
+            alt="Fotografía gastronómica de carne a la parrilla con salsa"
+            fill
+            priority={false}
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+
+          {/* CAPA PARA LEGIBILIDAD */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/20" />
+
+          <div className="container-rufino relative z-10 pb-20 pt-36 md:pb-28">
+            <div className="mb-12 flex items-center gap-4">
+              <span className="text-sm font-bold">
+                01 /
+              </span>
+              <span className="text-sm uppercase tracking-widest">
+                Portfolio
+              </span>
+            </div>
+
+            <h2 className="max-w-5xl text-5xl font-black leading-[1.05] tracking-tight md:text-8xl">
+              UNA SELECCIÓN
+              <br />
+              DE MI TRABAJO.
+            </h2>
+
+            <p className="mt-10 max-w-xl text-lg text-white/85">
+              Fotografía, vídeo y piezas de comunicación
+              creadas para mostrar la personalidad
+              de cada proyecto.
+            </p>
+
+            <div className="mt-12 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+              Descubre los proyectos
+              <ArrowDown size={18} />
+            </div>
+          </div>
+        </div>
+
+        {/* GALERÍA DE PROYECTOS */}
+        <div className="container-rufino py-24 md:py-32">
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                Trabajo seleccionado
+              </p>
+              <h3 className="text-4xl font-black tracking-tight md:text-6xl">
+                PROYECTOS.
+              </h3>
+            </div>
+
+            <p className="max-w-sm text-neutral-600">
+              Una mirada a diferentes disciplinas,
+              estilos y formas de contar historias.
+            </p>
           </div>
 
-          <h2 className="max-w-5xl text-5xl font-black leading-[1.05] tracking-tight md:text-8xl">
-            UNA SELECCIÓN
-            <br />
-            DE MI TRABAJO.
-          </h2>
-
-          <p className="mt-10 max-w-xl text-lg text-neutral-600">
-            Fotografía, vídeo y piezas de comunicación
-            creadas para mostrar la personalidad
-            de cada proyecto.
-          </p>
-
-          <div className="mt-20 grid gap-10 md:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-3">
             {projects.map((project) => (
               <article
                 key={project.number}
@@ -179,7 +218,9 @@ export default function Home() {
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
-            <span className="text-sm font-bold">02 /</span>
+            <span className="text-sm font-bold">
+              02 /
+            </span>
             <span className="text-sm uppercase tracking-widest">
               Qué hago
             </span>
@@ -223,7 +264,9 @@ export default function Home() {
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
-            <span className="text-sm font-bold">03 /</span>
+            <span className="text-sm font-bold">
+              03 /
+            </span>
             <span className="text-sm uppercase tracking-widest">
               Sobre mí
             </span>
@@ -263,7 +306,9 @@ export default function Home() {
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
-            <span className="text-sm font-bold">04 /</span>
+            <span className="text-sm font-bold">
+              04 /
+            </span>
             <span className="text-sm uppercase tracking-widest">
               Contacto
             </span>
