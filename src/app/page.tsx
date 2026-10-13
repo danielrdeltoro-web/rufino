@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import Intro from "@/components/Intro";
@@ -118,7 +119,7 @@ export default function Home() {
                 FOTOGRAFÍA Y VÍDEO
               </span>
 
-              <span className="mt-3 block text-[clamp(3rem,5vw,5.5rem)] font-black leading-[1.05] tracking-[-0.04em] text-white transition-opacity duration-300 group-hover:opacity-75">
+              <span className="mt-3 block text-[clamp(2.6875rem,calc(5vw-5px),5.1875rem)] font-black leading-[1.05] tracking-normal text-white transition-opacity duration-300 group-hover:opacity-75">
                 Gastronomía
               </span>
 
