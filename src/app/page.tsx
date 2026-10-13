@@ -1,5 +1,56 @@
+
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Instagram } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Instagram,
+} from "lucide-react";
+
+const projects = [
+  {
+    number: "01",
+    title: "Gastronomía",
+    category: "Fotografía comercial",
+    image: "/images/gastronomia.png",
+    alt: "Fotografía gastronómica de Rufino",
+  },
+  {
+    number: "02",
+    title: "Retratos",
+    category: "Fotografía editorial",
+    image: "/images/retrato.png",
+    alt: "Retrato fotográfico de Rufino",
+  },
+  {
+    number: "03",
+    title: "Producto",
+    category: "Fotografía publicitaria",
+    image: "/images/producto.png",
+    alt: "Fotografía comercial de producto",
+  },
+];
+
+const services = [
+  {
+    number: "01",
+    title: "Fotografía",
+    description:
+      "Producto, gastronomía, espacios y retratos.",
+  },
+  {
+    number: "02",
+    title: "Vídeo y reels",
+    description:
+      "Historias y contenido audiovisual para marcas.",
+  },
+  {
+    number: "03",
+    title: "Comunicación visual",
+    description:
+      "Una identidad coherente para tus canales digitales.",
+  },
+];
 
 export default function Home() {
   return (
@@ -99,27 +150,44 @@ export default function Home() {
             de cada proyecto.
           </p>
 
-          <div className="mt-20 grid gap-6 md:grid-cols-3">
-            {["Fotografía", "Vídeo", "Retratos"].map(
-              (item, index) => (
-                <div key={item} className="group">
-                  <div className="flex aspect-[3/4] items-center justify-center bg-neutral-200 transition-colors duration-500 group-hover:bg-neutral-300">
-                    <span className="text-xs uppercase tracking-widest text-neutral-500">
-                      Próximamente
-                    </span>
-                  </div>
+          <div className="mt-20 grid gap-10 md:grid-cols-3">
+            {projects.map((project) => (
+              <article
+                key={project.number}
+                className="group"
+              >
+                <div className="relative aspect-[3/4] overflow-hidden bg-neutral-200">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  />
 
-                  <div className="mt-5 flex items-center justify-between">
-                    <h3 className="text-xl font-bold">
-                      {item}
-                    </h3>
-                    <span className="text-sm text-neutral-500">
-                      0{index + 1}
-                    </span>
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
+
+                  <div className="absolute bottom-6 right-6 flex h-12 w-12 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <ArrowUpRight size={22} />
                   </div>
                 </div>
-              )
-            )}
+
+                <div className="mt-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-2 text-xs uppercase tracking-widest text-neutral-500">
+                      {project.category}
+                    </p>
+                    <h3 className="text-2xl font-bold">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <span className="text-sm text-neutral-500">
+                    {project.number}
+                  </span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -144,26 +212,7 @@ export default function Home() {
           </h2>
 
           <div className="mt-20 border-t border-neutral-700">
-            {[
-              {
-                number: "01",
-                title: "Fotografía",
-                description:
-                  "Producto, gastronomía, espacios y retratos.",
-              },
-              {
-                number: "02",
-                title: "Vídeo y reels",
-                description:
-                  "Historias y contenido audiovisual para marcas.",
-              },
-              {
-                number: "03",
-                title: "Comunicación visual",
-                description:
-                  "Una identidad coherente para tus canales digitales.",
-              },
-            ].map((service) => (
+            {services.map((service) => (
               <div
                 key={service.number}
                 className="flex flex-col gap-5 border-b border-neutral-700 py-10 md:flex-row md:items-center md:justify-between"
@@ -172,6 +221,7 @@ export default function Home() {
                   <span className="text-sm text-neutral-500">
                     {service.number}
                   </span>
+
                   <h3 className="text-3xl font-bold md:text-5xl">
                     {service.title}
                   </h3>
