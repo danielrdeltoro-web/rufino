@@ -58,7 +58,7 @@ export default function Home() {
       {/* INTRO Y PORTADA CON SCROLL STICKY */}
       <div
         id="intro-section"
-        className="relative h-[220vh]"
+        className="relative h-[180vh]"
       >
         <div className="sticky top-0 h-screen overflow-hidden bg-black">
           {/* PORTADA PRINCIPAL */}
