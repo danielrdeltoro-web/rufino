@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
@@ -62,7 +61,7 @@ export default function Home() {
       {/* INTRO Y PORTADA CON SCROLL STICKY */}
       <div
         id="intro-section"
-        className="relative h-[180vh]"
+        className="relative h-[230vh]"
       >
         <div className="sticky top-0 h-screen overflow-hidden bg-black">
           {/* PORTADA PRINCIPAL */}
