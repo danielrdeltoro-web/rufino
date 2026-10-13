@@ -79,61 +79,59 @@ export default function Home() {
         </div>
       </div>
 
-      {/* PORTFOLIO GASTRONÓMICO */}
+      {/* 01 / PORTFOLIO GASTRONÓMICO */}
       <section
         id="proyectos"
-        className="section-light scroll-mt-20"
+        className="section-dark relative min-h-screen scroll-mt-20 overflow-hidden bg-black text-white"
       >
-        <div className="relative min-h-screen overflow-hidden bg-black text-white">
-          {/* FOTOGRAFÍA DE FONDO */}
-          <Image
-            src="/images/portfolio-background.png"
-            alt="Fotografía gastronómica de carne a la parrilla con salsa"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
+        {/* FOTOGRAFÍA DE FONDO */}
+        <Image
+          src="/images/portfolio-background.png"
+          alt="Fotografía gastronómica de carne a la parrilla con salsa"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-          {/* DEGRADADO SUAVE PARA LEGIBILIDAD */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
+        {/* DEGRADADO PARA LEGIBILIDAD */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-black/10" />
 
-          {/* CONTENIDO SOBRE LA FOTOGRAFÍA */}
-          <div className="container-rufino relative z-10 flex min-h-screen flex-col justify-between pb-16 pt-32 md:pb-24">
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-bold">
-                01 /
-              </span>
-              <span className="text-sm uppercase tracking-widest">
-                Portfolio
-              </span>
-            </div>
-
-            <Link
-              href="/gastronomia"
-              className="group inline-flex w-fit max-w-full flex-col items-start gap-1"
-              aria-label="Explorar fotografía y vídeo gastronómico"
-            >
-              <span className="text-xs font-medium uppercase tracking-[0.15em] text-white/85">
-                FOTOGRAFÍA Y VÍDEO
-              </span>
-
-              <span className="text-3xl font-bold leading-tight tracking-tight text-white transition-opacity duration-300 group-hover:opacity-70 md:text-4xl">
-                Gastronomía
-              </span>
-
-              <span className="mt-4 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-white/80 opacity-100 transition-all duration-300 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
-                Explorar
-                <ArrowUpRight size={17} />
-              </span>
-            </Link>
+        {/* CONTENIDO */}
+        <div className="container-rufino relative z-10 flex min-h-screen flex-col pt-32 pb-16 md:pt-40 md:pb-24">
+          <div className="mb-12 flex items-center gap-4">
+            <span className="text-sm font-bold">
+              01 /
+            </span>
+            <span className="text-sm uppercase tracking-widest">
+              Portfolio
+            </span>
           </div>
+
+          <Link
+            href="/gastronomia"
+            className="group inline-flex w-fit max-w-full flex-col items-start"
+            aria-label="Explorar fotografía y vídeo gastronómico"
+          >
+            <span className="block text-3xl font-black uppercase leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
+              FOTOGRAFÍA Y VÍDEO
+            </span>
+
+            <span className="mt-2 block text-5xl font-black leading-[1.05] tracking-tight text-white transition-opacity duration-300 group-hover:opacity-75 md:mt-4 md:text-8xl">
+              Gastronomía
+            </span>
+
+            <span className="mt-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-white/90 transition-all duration-300 group-hover:gap-5">
+              Explorar portfolio
+              <ArrowUpRight size={20} />
+            </span>
+          </Link>
         </div>
       </section>
 
-      {/* SERVICIOS */}
+      {/* 02 / SERVICIOS - FONDO BLANCO */}
       <section
         id="servicios"
-        className="section-dark scroll-mt-20 py-28 md:py-40"
+        className="section-light scroll-mt-20 py-28 md:py-40"
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
@@ -151,11 +149,11 @@ export default function Home() {
             CON INTENCIÓN.
           </h2>
 
-          <div className="mt-20 border-t border-neutral-700">
+          <div className="mt-20 border-t border-neutral-300">
             {services.map((service) => (
               <div
                 key={service.number}
-                className="flex flex-col gap-5 border-b border-neutral-700 py-10 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-5 border-b border-neutral-300 py-10 md:flex-row md:items-center md:justify-between"
               >
                 <div className="flex items-center gap-8">
                   <span className="text-sm text-neutral-500">
@@ -167,7 +165,7 @@ export default function Home() {
                   </h3>
                 </div>
 
-                <p className="max-w-xs text-neutral-400">
+                <p className="max-w-xs text-neutral-600">
                   {service.description}
                 </p>
               </div>
@@ -176,10 +174,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE MÍ */}
+      {/* 03 / SOBRE MÍ - FONDO NEGRO */}
       <section
         id="sobre-mi"
-        className="section-light scroll-mt-20 py-28 md:py-40"
+        className="section-dark scroll-mt-20 py-28 md:py-40"
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
@@ -201,14 +199,14 @@ export default function Home() {
             </h2>
 
             <div>
-              <p className="text-xl leading-relaxed text-neutral-700 md:text-2xl">
+              <p className="text-xl leading-relaxed text-neutral-300 md:text-2xl">
                 Soy Rufino, fotógrafo y filmmaker
                 en Gran Canaria. Creo contenido
                 visual para marcas que quieren
                 mostrar lo que las hace diferentes.
               </p>
 
-              <p className="mt-8 text-neutral-500">
+              <p className="mt-8 text-neutral-400">
                 Cada proyecto es una oportunidad
                 para explorar nuevas ideas,
                 perspectivas y formas de comunicar.
@@ -218,10 +216,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACTO */}
+      {/* 04 / CONTACTO - FONDO BLANCO */}
       <section
         id="contacto"
-        className="section-dark scroll-mt-20 py-28 md:py-40"
+        className="section-light scroll-mt-20 py-28 md:py-40"
       >
         <div className="container-rufino">
           <div className="mb-16 flex items-center gap-4">
@@ -239,7 +237,7 @@ export default function Home() {
             ALGO GRANDE?
           </h2>
 
-          <p className="mt-10 max-w-xl text-neutral-400">
+          <p className="mt-10 max-w-xl text-neutral-600">
             Tu marca tiene algo que contar.
             Hablemos de cómo darle vida.
           </p>
@@ -248,7 +246,7 @@ export default function Home() {
             href="https://www.instagram.com/byrubencurbelo/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-12 inline-flex items-center gap-3 border-b border-white pb-3 text-xl font-semibold transition-opacity hover:opacity-60"
+            className="mt-12 inline-flex items-center gap-3 border-b border-black pb-3 text-xl font-semibold transition-opacity hover:opacity-60"
           >
             Escríbeme por Instagram
             <ArrowUpRight size={24} />
