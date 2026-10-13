@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -34,7 +33,8 @@ export default function Navbar() {
           "intro-section"
         );
 
-        // Sincronizamos la navbar con la apertura.
+        // INTRO: navbar visible al terminar
+        // la apertura de la fotografía.
         if (intro) {
           const rect = intro.getBoundingClientRect();
 
@@ -48,15 +48,18 @@ export default function Navbar() {
             1
           );
 
-          // La fotografía termina de abrirse al 75%.
           setIntroVisible(progress < 0.75);
         } else {
           setIntroVisible(false);
         }
 
-        // Detectamos el fondo bajo la navegación.
+        // DETECCIÓN DEL FONDO
+        // Comprobamos qué sección está realmente
+        // debajo de la barra de navegación.
+        const detectionPoint = 48;
+
         const sections = document.querySelectorAll(
-          ".section-light, .section-dark"
+          ".section-light, .section-dark, footer"
         );
 
         let isDark = true;
@@ -64,10 +67,19 @@ export default function Navbar() {
         sections.forEach((section) => {
           const rect = section.getBoundingClientRect();
 
-          if (rect.top <= 50 && rect.bottom > 50) {
-            isDark = section.classList.contains(
-              "section-dark"
-            );
+          const isUnderNavbar =
+            rect.top <= detectionPoint &&
+            rect.bottom > detectionPoint;
+
+          if (isUnderNavbar) {
+            if (section.classList.contains("section-light")) {
+              isDark = false;
+            } else if (
+              section.classList.contains("section-dark") ||
+              section.tagName.toLowerCase() === "footer"
+            ) {
+              isDark = true;
+            }
           }
         });
 
