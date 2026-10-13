@@ -1,6 +1,6 @@
-
 import Link from "next/link";
 import Image from "next/image";
+import Intro from "@/components/Intro";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -55,6 +55,9 @@ const services = [
 export default function Home() {
   return (
     <main>
+      {/* INTRO CINEMATOGRÁFICA */}
+      <Intro />
+
       {/* NAVEGACIÓN */}
       <header className="absolute left-0 top-0 z-20 w-full text-white">
         <div className="container-rufino flex h-24 items-center justify-between">
@@ -295,7 +298,7 @@ export default function Home() {
             ALGO GRANDE?
           </h2>
 
-          <p className="mt-10 max-w-xl text-xl text-neutral-400">
+          <p className="mt-10 max-w-xl text-neutral-400">
             Tu marca tiene algo que contar.
             Hablemos de cómo darle vida.
           </p>
