@@ -1,6 +1,7 @@
-import Link from "next/link";
+
 import Image from "next/image";
 import Intro from "@/components/Intro";
+import Navbar from "@/components/Navbar";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -55,6 +56,9 @@ const services = [
 export default function Home() {
   return (
     <main>
+      {/* NAVEGACIÓN GLOBAL */}
+      <Navbar />
+
       {/* INTRO Y PORTADA CON SCROLL STICKY */}
       <div
         id="intro-section"
@@ -63,53 +67,6 @@ export default function Home() {
         <div className="sticky top-0 h-screen overflow-hidden bg-black">
           {/* PORTADA PRINCIPAL */}
           <section className="section-dark relative flex h-full flex-col justify-center overflow-hidden">
-            {/* NAVEGACIÓN */}
-            <header className="absolute left-0 top-0 z-20 w-full text-white">
-              <div className="container-rufino flex h-24 items-center justify-between">
-                <Link
-                  href="/"
-                  className="text-3xl font-black tracking-[-0.08em]"
-                >
-                  RUFINO.
-                </Link>
-
-                <nav className="hidden items-center gap-10 text-sm font-medium md:flex">
-                  <a
-                    href="#proyectos"
-                    className="hover:opacity-60"
-                  >
-                    Proyectos
-                  </a>
-                  <a
-                    href="#servicios"
-                    className="hover:opacity-60"
-                  >
-                    Servicios
-                  </a>
-                  <a
-                    href="#sobre-mi"
-                    className="hover:opacity-60"
-                  >
-                    Sobre mí
-                  </a>
-                  <a
-                    href="#contacto"
-                    className="hover:opacity-60"
-                  >
-                    Contacto
-                  </a>
-                </nav>
-
-                <a
-                  href="#contacto"
-                  className="flex items-center gap-2 text-sm font-semibold"
-                >
-                  Hablemos
-                  <ArrowUpRight size={18} />
-                </a>
-              </div>
-            </header>
-
             <div className="container-rufino relative z-10 pt-28">
               <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-neutral-400">
                 Fotografía · Film · Comunicación visual
